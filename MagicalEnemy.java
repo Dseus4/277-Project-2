@@ -1,21 +1,23 @@
 /**
-* Randomly generated more difficult enemy with ability to cast magical spells
-*/
+ * Randomly generated more difficult enemy with ability to cast magical spells
+ */
 class MagicalEnemy extends Enemy implements Magical{
     /**
-    * Constructs MagicalEnemy entity with name and maxHP.
-    * @param n   - Name of the Enemy 
-    * @param mHp - Max Hp of the enemy
-    */
+     * Constructs MagicalEnemy entity with name and maxHP.
+     * 
+     * @param n   - Name of the Enemy
+     * @param mHp - Max Hp of the enemy
+     */
     public MagicalEnemy( String n , int mHp ) {
         super( n , mHp );
     }
 
     /**
-      * Randomly chooses a spell to be cast against entity e(1-3).
-      * @param e          - Entity being attacked
-      * @return - String representation of the magical attack being cast.
-      */
+     * Randomly chooses a spell to be cast against entity e(1-3).
+     * 
+     * @param e - Entity being attacked
+     * @return - String representation of the magical attack being cast.
+     */
     public String attack( Entity e ) {
         int attackNum = (int)( Math.random() * 3 ) + 1 ;
         switch( attackNum ) {
@@ -30,10 +32,11 @@ class MagicalEnemy extends Enemy implements Magical{
     }
 
     /**
-    * Enemy's cast of Magic missle attack against entity e(1-6).
-    * @param e - The Hero entity being attacked
-    * @return  - String representation of Magic Missles cast against entity e
-    */
+     * Enemy's cast of Magic missle attack against entity e(1-6).
+     * 
+     * @param e - The Hero entity being attacked
+     * @return - String representation of Magic Missles cast against entity e
+     */
     public String magicMissle( Entity e ) {
         int d = (int) (Math.random() * 6 ) + 1;
         e.takeDamage(d);
@@ -41,10 +44,11 @@ class MagicalEnemy extends Enemy implements Magical{
     }
 
     /**
-    * Enemy's cast of Fireball attack against entity e(2-5).
-    * @param e - The Hero entity being attacked
-    * @return  - String representation of Fireball cast against entity e
-    */
+     * Enemy's cast of Fireball attack against entity e(2-5).
+     * 
+     * @param e - The Hero entity being attacked
+     * @return - String representation of Fireball cast against entity e
+     */
     public String fireball( Entity e ) {
         int d = (int) (Math.random() * 4 ) + 2;
         e.takeDamage(d);
@@ -52,10 +56,11 @@ class MagicalEnemy extends Enemy implements Magical{
     }
 
     /**
-    * Enemy's cast of Thunderclap attack against entity e(3-4).
-    * @param e - The Hero entity being attacked
-    * @return  - String representation of Thunderclap cast against entity e
-    */
+     * Enemy's cast of Thunderclap attack against entity e(3-4).
+     * 
+     * @param e - The Hero entity being attacked
+     * @return - String representation of Thunderclap cast against entity e
+     */
     public String thunderclap( Entity e ) {
         int d = (int) (Math.random() * 2 ) + 3;
         e.takeDamage(d);

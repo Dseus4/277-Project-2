@@ -2,14 +2,14 @@ import java.util.Scanner;
 import java.io.File;
 
 /**
-  * Generate enemies in the game from the provided txt file.
-  */
+ * Generate enemies in the game from the provided txt file.
+ */
 class EnemyGenerator{
     java.util.ArrayList<Enemy> enemyList = new java.util.ArrayList<Enemy>();
 
     /**
-      * Constructs list of enemies via "Enemies.txt"
-      */
+     * Constructs list of enemies via "Enemies.txt"
+     */
     public EnemyGenerator() {
         String next;
     	File file = new File( "Enemies.txt" );
@@ -30,9 +30,10 @@ class EnemyGenerator{
     }
 
       /**
-      * This method will generate an enemy from the list with its level
-      * @return - Randomly generated Enemy
-      */
+       * This method will generate an enemy from the list with its level
+       * 
+       * @return - Randomly generated Enemy
+       */
 
     public Enemy generateEnemy() {
         int mNum = (int)( Math.random() * enemyList.size() );

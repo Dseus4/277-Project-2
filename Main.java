@@ -1,18 +1,13 @@
-/* Juan Espino
- * Garret Tsumaki
- * Minh Tran
- * 3/9/20
- Project 1 - This is a game where the user will explore a dungeon maze and fight monsters that they may encounter along the way.
- */
-
 import java.util.*;
 class Main {
-    /** 
-      * This method lets the user know they encountered a monster room and gives options to either initiate fight method or run away to a random direction.
-      * @param h        - User controlled Hero object
-      * @param e        - Enemy object the user confronts
-      * @return         - Whether or not the player survived the encounter
-      */
+    /**
+     * This method lets the user know they encountered a monster room and gives
+     * options to either initiate fight method or run away to a random direction.
+     * 
+     * @param h - User controlled Hero object
+     * @param e - Enemy object the user confronts
+     * @return - Whether or not the player survived the encounter
+     */
     static boolean monsterRoom( Hero h , Enemy e ) {
         Scanner in = new Scanner( System.in );
         int userIn;
@@ -75,12 +70,17 @@ class Main {
         }
         return false;
     }
+    
     /**
-      * This method starts the fight sequence with the Hero and the monster where the user can choose two different types of attacks to combat the monster
-      * @param h       - the Hero object that can use physical attacks or magic attacks against the mosnter 
-      * @param e       - the enemy object that attacks the Hero
-      * @return userIn - will return the outcome of the fight between the Hero and the monster
-      */
+     * This method starts the fight sequence with the Hero and the monster where the
+     * user can choose two different types of attacks to combat the monster
+     * 
+     * @param h - the Hero object that can use physical attacks or magic attacks
+     *          against the mosnter
+     * @param e - the enemy object that attacks the Hero
+     * @return userIn - will return the outcome of the fight between the Hero and
+     *         the monster
+     */
     static boolean fight( Hero h , Enemy e ){
         Scanner in = new Scanner( System.in );
         int userIn;
@@ -139,12 +139,14 @@ class Main {
     }
 
     /**
-      * This method starts the game by asking the user for their name. As long as the hero is alive, the user will be able to keep moving them around the map. 
-      * @param in    - Takes input from user to select from game menu
-      * @param name  - Name of the Hero
-      * @param hero  - Hero/Main character of game
-      * @param enGen - Enemy Generator when the user encounters a monster room
-      */
+     * This method starts the game by asking the user for their name. As long as the
+     * hero is alive, the user will be able to keep moving them around the map.
+     * 
+     * @param in    - Takes input from user to select from game menu
+     * @param name  - Name of the Hero
+     * @param hero  - Hero/Main character of game
+     * @param enGen - Enemy Generator when the user encounters a monster room
+     */
     public static void main( String [] args ) {
         final String DIRECTION_MENU = "1. Go North\n2. Go South\n3. Go East\n4. Go West\n5. Quit";
 
@@ -215,5 +217,5 @@ class Main {
             }
         }
         System.out.println( "Game Over ");
-    }//end main()
-}//end Main
+    }
+}

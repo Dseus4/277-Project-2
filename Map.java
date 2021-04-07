@@ -2,26 +2,29 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.awt.Point;
+
 /**
-  *Represents the dungeon Maze where the game will take place as a 5x5 map.
-**/
+ * Represents the dungeon Maze where the game will take place as a 5x5 map.
+ **/
 public class Map{
     
     public char[][] map;
     public boolean[][] revealed;
 
     /**
-    * Constructs empty map
-    */
+     * Constructs empty map
+     */
     public Map(){
 		map = new char[5][5];
 		revealed = new boolean[5][5];
-    }//end Map()
+    }
 
     /**
-      * Loads the map for each corresponding level by reading the map txt files accordingly. 
-      * @param mapNum - The map number to be loaded
-      **/
+     * Loads the map for each corresponding level by reading the map txt files
+     * accordingly.
+     * 
+     * @param mapNum - The map number to be loaded
+     **/
     public void loadMap(int mapNum){
     	String fileName = "";
         switch( mapNum ) {
@@ -53,22 +56,24 @@ public class Map{
         }
         reveal( findStart() );
 
-    }//end loadMap()
+    }
 
     /**
-      * Gets the char located on the map at a specified point.
-      * @param p - Point to get char from
-      * @return  - Char at p
-      **/
+     * Gets the char located on the map at a specified point.
+     * 
+     * @param p - Point to get char from
+     * @return - Char at p
+     **/
     public char getCharAtLoc(Point p){
 		return map[p.x][p.y];
-    }//end getCharAtLoc()
+    }
 
     /**
-      * Produces the map for the User to keep track of their location.
-      * @param p        - Point to draw the User at
-      * @return outMap  - string representation of the map
-      **/
+     * Produces the map for the User to keep track of their location.
+     * 
+     * @param p - Point to draw the User at
+     * @return outMap - string representation of the map
+     **/
     public String mapToString(Point p){
 		String outMap = "";
         for ( int x = 0; x < 5; ++x ) {
@@ -87,12 +92,13 @@ public class Map{
         }
         outMap = outMap.substring( 0 , ( outMap.length() - 1 ) ) ;
 		return outMap;
-    }//end mapToString()
+    }
 
     /**
-      * Finds where the user starts on the map.
-      * @return  - Starting Point
-      **/
+     * Finds where the user starts on the map.
+     * 
+     * @return - Starting Point
+     **/
 
     public Point findStart(){
 		for (int x = 0; x < 5; x++){
@@ -106,17 +112,19 @@ public class Map{
     }
 
     /**
-      * Reveals the specified point
-      * @param p - Point to be revealed
-      **/
+     * Reveals the specified point
+     * 
+     * @param p - Point to be revealed
+     **/
     public void reveal(Point p){
 		revealed[p.x][p.y] = true;
     }
 
     /**
-      * Replaces char at specified point for the purpose of clearing rooms
-      * @param p - Point to be removed/cleared
-      **/
+     * Replaces char at specified point for the purpose of clearing rooms
+     * 
+     * @param p - Point to be removed/cleared
+     **/
     public void removeCharAtLoc(Point p){
         //avoids clearing start and finish
         if( map[p.x][p.y] != 's' && map[p.x][p.y] != 'f') {
@@ -124,4 +132,4 @@ public class Map{
         }
     }
 
-}//end Map
+}
