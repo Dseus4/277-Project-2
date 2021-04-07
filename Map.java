@@ -54,6 +54,9 @@ public class Map{
             System.out.println("FileNotFoundException");
             e.printStackTrace();
         }
+        for(int i = 0; i < revealed.length; ++i)
+            for(int j = 0; j < revealed[0].length; ++j)
+                revealed[i][j] = false;
         reveal( findStart() );
 
     }

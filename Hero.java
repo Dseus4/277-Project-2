@@ -45,7 +45,6 @@ class Hero extends Entity implements Magical{
      */
     public void levelUp() {
         level = ( level ) % 3 + 1;
-        map = new Map();
         map.loadMap( level );
     }
 
