@@ -7,7 +7,7 @@ class Hero extends Entity implements Magical{
     private Map map = new Map();
     private java.awt.Point loc = new java.awt.Point();
     private int level = 1;
-
+    private int key = 0;
     /**
      * Construct hero with 25 health and place hero in map 1.
      * 
@@ -110,6 +110,36 @@ class Hero extends Entity implements Magical{
             return out;
         }
         return 'x';
+    }
+
+    /**
+     * Used when trying to exit floor
+     * 
+     * @return - if hero has any keys
+     */
+    public boolean hasKey() {
+        return key > 0;
+    }
+
+    /**
+     * Used when user buys key at a store or in an item room
+     * 
+     */
+    public void pickUpKey() {
+        key++;
+    }
+
+    /**
+     * When player tries to exit floor
+     * 
+     * @return - If player successfully uses key
+     */
+    public boolean useKey() {
+        if (hasKey()) {
+            key--;
+            return true;
+        }
+        return false;
     }
 
     /**
