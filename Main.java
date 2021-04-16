@@ -139,58 +139,116 @@ class Main {
     }
     
     public static void Store(Hero h) {
-		Scanner input = new Scanner(System.in);
-		System.out.println("Welcome to the store! What would you like to do?");
-		System.out.println("1. Buy\n2. Exit");
+	Scanner input = new Scanner(System.in);
+	System.out.println("Welcome to the store! What would you like to do?");
+	System.out.println("1. Buy\n2. Exit");
+
+	Scanner input = new Scanner(System.in);
+	System.out.println("Welcome to the store! What would you like to do?");
+	System.out.println("1. Buy\n2. Exit");
 		
-		int selection = input.nextInt();
-		
-		int gold = h.getGold();
-		
-		while (selection == 1) {
-			System.out.println("What would you like to buy?");
-			System.out.println("1. Health Potions: 25 Gold\n2. Key: 50 Gold");
-			System.out.println("Amount: " + gold);
-			
+	int gold = h.getGold();
+	int selection = 1;
+
+	while (true)
+	{
+		if (input.hasNextInt())
+		{
 			selection = input.nextInt();
-			
-			if (selection == 1) {
-				h.spendGold(25);
-				
-				
-				
-				if (h.getGold() != gold) {
-					System.out.println("You got a potion! Using it now...");
-					// Potions are used immediately.
-					h.heal(25);
-				}
-				else {
-					System.out.println("Not enough gold! Come back when you have gold.");
-					break;
-				}
-				
+
+			if (selection > 0 && selection < 3)
+			{
+				break;
 			}
-			else if (selection == 2) {
-				h.spendGold(50);
-				
-				
-				if (h.getGold() != gold) {
-					System.out.println("You got a key!");
-					h.pickUpKey();
-				}
-				else {
-					System.out.println("Not enough gold! Come back when you have gold.");
+		}
+		else
+		{
+			input.nextLine();
+		}
+	}
+
+	while (selection == 1)
+	{
+		System.out.println("What would you like to buy?");
+		System.out.println("1. Health Potions: 25 Gold\n2. Key: 50 Gold");
+		System.out.println("Amount: " + gold);
+
+
+		while (true)
+		{
+			if (input.hasNextInt())
+			{
+				selection = input.nextInt();
+
+				if (selection > 0 && selection < 3)
+				{
 					break;
 				}
-				
+			}
+			else
+			{
+				input.nextLine();
+			}
+		}
+
+
+		if (selection == 1)
+		{
+			h.spendGold(25);
+
+			if (h.getGold() != gold)
+			{
+				System.out.println("You got a potion! Using it now...");
+				// Potions are used immediately.
+				h.heal(25);
+			}
+			else
+			{
+				System.out.println("Not enough gold! Come back when you have gold.");
+				break;
 			}
 
-			System.out.println("1. Buy again\n2. Quit");
-			selection = input.nextInt();
-			
 		}
-		
+		else if (selection == 2)
+		{
+			h.spendGold(50);
+
+
+			if (h.getGold() != gold)
+			{
+				System.out.println("You got a key!");
+				h.pickUpKey();
+			}
+			else
+			{
+				System.out.println("Not enough gold! Come back when you have gold.");
+				break;
+			}
+
+		}
+
+		System.out.println("1. Buy again\n2. Quit");
+
+		while (true)
+		{
+			if (input.hasNextInt())
+			{
+				selection = input.nextInt();
+
+				if (selection > 0 && selection < 3)
+				{
+					break;
+				}
+			}
+			else
+			{
+				input.nextLine();
+			}
+		}
 	}
+    }
+		
+}
 
     /**
      * This method starts the game by asking the user for their name. As long as the
