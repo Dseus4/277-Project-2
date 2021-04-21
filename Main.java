@@ -194,10 +194,12 @@ class Main {
 
 		if (selection == 1)
 		{
-			h.spendGold(25);
+			
 
-			if (h.getGold() != gold)
+			if (gold >= 25)
 			{
+				h.spendGold(25);
+				gold -= 25;
 				System.out.println("You got a potion! Using it now...");
 				// Potions are used immediately.
 				h.heal(25);
@@ -211,11 +213,13 @@ class Main {
 		}
 		else if (selection == 2)
 		{
-			h.spendGold(50);
+			
 
 
-			if (h.getGold() != gold)
+			if (gold() >= 50)
 			{
+				h.spendGold(50);
+				gold =- 50;
 				System.out.println("You got a key!");
 				h.pickUpKey();
 			}
