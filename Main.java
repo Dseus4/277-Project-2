@@ -134,7 +134,7 @@ class Main {
                 return false;
             }
         }
-
+	h.collectGold((int) (Math.random() * 8) + 3);
         return true;
     }
     
