@@ -198,9 +198,19 @@ class Hero extends Entity implements Magical{
     public int getGold(){
         return gold;
     }
+    /**
+    * collectedGold - adds g to gold when hero finds gold
+    *
+    *@Param g - amount of gold hero has found
+    */
     public void collectGold(int g){
         gold += g;
     }
+    /**
+    *spendGold - subtracts g from gold when hero spends gold
+    *
+    *@Param g - amount of gold Hero spends
+    */
     public void spendGold(int g){
         gold -= g;
     }
