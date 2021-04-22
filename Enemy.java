@@ -9,8 +9,8 @@ class Enemy extends Entity {
      * @param n   - Name of Enemy
      * @param mHp - Max HP of enemy
      */
-    public Enemy(String n, int mHp){
-        super(n, mHp);
+    public Enemy( String n, int mHp ){
+        super( n, mHp );
     }
 
     /**
@@ -19,9 +19,9 @@ class Enemy extends Entity {
      * @param e - Entity the enemy is attacking
      * @return - String representation of attack
      */
-    public String attack(Entity e){
+    public String attack( Entity e ){
         int d = (int)( Math.random() * ( ( getMaxHP() * 2 ) - 1 ) ) + 1;
-        e.takeDamage(d);
+        e.takeDamage( d );
         return getName() + " attacks " + e.getName() + " for " + d + " damage.";
     }
 }

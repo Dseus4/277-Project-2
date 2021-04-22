@@ -76,7 +76,7 @@ class Main {
      * @return userIn - will return the outcome of the fight between the Hero and
      *         the monster
      */
-    static boolean fight( Hero h , Enemy e ){
+    static boolean fight( Hero h , Enemy e ) {
         Scanner in = new Scanner( System.in );
         int userIn;
 	

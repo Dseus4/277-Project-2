@@ -1,7 +1,7 @@
 /**
  * Randomly generated more difficult enemy with ability to cast magical spells
  */
-class MagicalEnemy extends Enemy implements Magical{
+class MagicalEnemy extends Enemy implements Magical {
     /**
      * Constructs MagicalEnemy entity with name and maxHP.
      * 

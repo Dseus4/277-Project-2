@@ -3,7 +3,7 @@
  * of magical attacks.
  */
 
-interface Magical{
+interface Magical {
     static final String MAGIC_MENU = "1. Magic Missle\n2. Fireball\n3. Thunderclap";
     public String magicMissle( Entity e );
     public String fireball( Entity e );

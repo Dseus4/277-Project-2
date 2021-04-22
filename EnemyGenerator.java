@@ -10,9 +10,9 @@ class EnemyGenerator{
      * 
      * @return - Randomly generated Enemy
      */
-    public Enemy generateEnemy(int level) {
+    public Enemy generateEnemy( int level ) {
         Enemy outEnemy;
-        int rand_enemy = (int)(Math.random() * 4);
+        int rand_enemy = (int)( Math.random() * 4 );
         switch( rand_enemy ){
             case 0:
                 outEnemy = new Troll();
@@ -27,14 +27,14 @@ class EnemyGenerator{
                 outEnemy = new Goblin();
         }
         if( level > 1 ){
-            rand_enemy = (int)(Math.random() * 2);
+            rand_enemy = (int)( Math.random() * 2 );
             
             for( int i = 1; i < level; ++i ){
                 switch( rand_enemy ){
                     case 0:
-                        outEnemy = new Warrior(outEnemy);
+                        outEnemy = new Warrior( outEnemy );
                     case 1:
-                        outEnemy = new Warlock(outEnemy);
+                        outEnemy = new Warlock( outEnemy );
                 }
             }
         }

@@ -15,12 +15,12 @@ public class Map{
     /**
      * Constructs empty map
      */
-    private Map(){
+    private Map() {
 		map = new char[5][5];
 		revealed = new boolean[5][5];
     }
     
-    public static Map getInstance(){
+    public static Map getInstance() {
 	if (instance == null){
 	    instance = new Map();
 	}
@@ -34,7 +34,7 @@ public class Map{
      * 
      * @param mapNum - The map number to be loaded
      **/
-    public void loadMap(int mapNum){
+    public void loadMap(int mapNum) {
     	String fileName = "";
         switch( mapNum ) {
     	    case 1:
@@ -48,8 +48,8 @@ public class Map{
                 break;
         }
         try{
-            File file = new File(fileName);
-            Scanner read = new Scanner(file);
+            File file = new File( fileName );
+            Scanner read = new Scanner( file );
             String row;
             
             for( int i = 0; i < map.length; ++i ) {
@@ -59,12 +59,12 @@ public class Map{
                 }
             }
             read.close();
-        }catch (FileNotFoundException e){
-            System.out.println("FileNotFoundException");
+        }catch (FileNotFoundException e) {
+            System.out.println( "FileNotFoundException" );
             e.printStackTrace();
         }
-        for(int i = 0; i < revealed.length; ++i)
-            for(int j = 0; j < revealed[0].length; ++j)
+        for( int i = 0; i < revealed.length; ++i) 
+            for( int j = 0; j < revealed[0].length; ++j )
                 revealed[i][j] = false;
         reveal( findStart() );
 
@@ -76,7 +76,7 @@ public class Map{
      * @param p - Point to get char from
      * @return - Char at p
      **/
-    public char getCharAtLoc(Point p){
+    public char getCharAtLoc( Point p ) {
 		return map[p.x][p.y];
     }
 
@@ -86,11 +86,11 @@ public class Map{
      * @param p - Point to draw the User at
      * @return outMap - string representation of the map
      **/
-    public String mapToString(Point p){
+    public String mapToString( Point p ) {
 		String outMap = "";
         for ( int x = 0; x < 5; ++x ) {
             for ( int y = 0; y < 5; ++y ) {
-                if (x == p.x && y == p.y){
+                if ( x == p.x && y == p.y ) {
                     outMap += '*';
                 } else if ( revealed[x][y] ) {
                     outMap += map[x][y];
@@ -112,11 +112,11 @@ public class Map{
      * @return - Starting Point
      **/
 
-    public Point findStart(){
-		for (int x = 0; x < 5; x++){
-			for (int y = 0; y < 5; y++){
-				if (map[x][y] == 's'){
-                    return new Point(x,y);
+    public Point findStart() {
+		for ( int x = 0; x < 5; x++ ) {
+			for ( int y = 0; y < 5; y++ ) {
+				if ( map[x][y] == 's' ){
+                    return new Point( x , y );
 				}
 			}
 		}//end for
@@ -128,7 +128,7 @@ public class Map{
      * 
      * @param p - Point to be revealed
      **/
-    public void reveal(Point p){
+    public void reveal( Point p ) {
 		revealed[p.x][p.y] = true;
     }
 
@@ -137,7 +137,7 @@ public class Map{
      * 
      * @param p - Point to be removed/cleared
      **/
-    public void removeCharAtLoc(Point p){
+    public void removeCharAtLoc(Point p) {
         //avoids clearing start and finish
         if( map[p.x][p.y] != 's' && map[p.x][p.y] != 'f') {
 		    map[p.x][p.y] = 'n';
