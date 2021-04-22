@@ -139,115 +139,114 @@ class Main {
     }
     
     public static void Store(Hero h) {
-	Scanner input = new Scanner(System.in);
-	System.out.println("Welcome to the store! What would you like to do?");
-	System.out.println("1. Buy\n2. Exit");
-		
-	int gold = h.getGold();
-	int selection = 1;
+	    Scanner input = new Scanner(System.in);
+	    System.out.println("Welcome to the store! What would you like to do?");
+	    System.out.println("1. Buy\n2. Exit");
+        
+	    int gold = h.getGold();
+	    int selection = 1;
 
-	while (true)
-	{
-		if (input.hasNextInt())
-		{
-			selection = input.nextInt();
+	    while (true)
+	    {
+	    	if (input.hasNextInt())
+	    	{
+	    		selection = input.nextInt();
 
-			if (selection > 0 && selection < 3)
-			{
-				break;
-			}
-		}
-		else
-		{
-			input.nextLine();
-		}
-	}
+	    		if (selection > 0 && selection < 3)
+	    		{
+	    			break;
+	    		}
+	    	}
+	    	else
+	    	{
+	    		input.nextLine();
+	    	}
+	    }
 
-	while (selection == 1)
-	{
-		System.out.println("What would you like to buy?");
-		System.out.println("1. Health Potions: 25 Gold\n2. Key: 50 Gold");
-		System.out.println("Amount: " + gold);
-
-
-		while (true)
-		{
-			if (input.hasNextInt())
-			{
-				selection = input.nextInt();
-
-				if (selection > 0 && selection < 3)
-				{
-					break;
-				}
-			}
-			else
-			{
-				input.nextLine();
-			}
-		}
+	    while (selection == 1)
+	    {
+	    	System.out.println("What would you like to buy?");
+	    	System.out.println("1. Health Potions: 25 Gold\n2. Key: 50 Gold");
+	    	System.out.println("Amount: " + gold);
 
 
-		if (selection == 1)
-		{
-			
+	    	while (true)
+	    	{
+	    		if (input.hasNextInt())
+	    		{
+	    			selection = input.nextInt();
 
-			if (gold >= 25)
-			{
-				h.spendGold(25);
-				gold -= 25;
-				System.out.println("You got a potion! Using it now...");
-				// Potions are used immediately.
-				h.heal(25);
-			}
-			else
-			{
-				System.out.println("Not enough gold! Come back when you have gold.");
-				break;
-			}
-
-		}
-		else if (selection == 2)
-		{
-			
+	    			if (selection > 0 && selection < 3)
+	    			{
+	    				break;
+	    			}
+	    		}
+	    		else
+	    		{
+	    			input.nextLine();
+	    		}
+	    	}
 
 
-			if (gold() >= 50)
-			{
-				h.spendGold(50);
-				gold =- 50;
-				System.out.println("You got a key!");
-				h.pickUpKey();
-			}
-			else
-			{
-				System.out.println("Not enough gold! Come back when you have gold.");
-				break;
-			}
+	    	if (selection == 1)
+	    	{
+            
 
-		}
+	    		if (gold >= 25)
+	    		{
+	    			h.spendGold(25);
+	    			gold -= 25;
+	    			System.out.println("You got a potion! Using it now...");
+	    			// Potions are used immediately.
+	    			h.heal(25);
+	    		}
+	    		else
+	    		{
+	    			System.out.println("Not enough gold! Come back when you have gold.");
+	    			break;
+	    		}
 
-		System.out.println("1. Buy again\n2. Quit");
+	    	}
+	    	else if (selection == 2)
+	    	{
+            
 
-		while (true)
-		{
-			if (input.hasNextInt())
-			{
-				selection = input.nextInt();
 
-				if (selection > 0 && selection < 3)
-				{
-					break;
-				}
-			}
-			else
-			{
-				input.nextLine();
-			}
-		}
-	}
-		
-}
+	    		if (gold() >= 50)
+	    		{
+	    			h.spendGold(50);
+	    			gold =- 50;
+	    			System.out.println("You got a key!");
+	    			h.pickUpKey();
+	    		}
+	    		else
+	    		{
+	    			System.out.println("Not enough gold! Come back when you have gold.");
+	    			break;
+	    		}
+
+	    	}
+
+	    	System.out.println("1. Buy again\n2. Quit");
+
+	    	while (true)
+	    	{
+	    		if (input.hasNextInt())
+	    		{
+	    			selection = input.nextInt();
+
+	    			if (selection > 0 && selection < 3)
+	    			{
+	    				break;
+	    			}
+	    		}
+	    		else
+	    		{
+	    			input.nextLine();
+	    		}
+	    	}
+	    }
+    }
 
     /**
      * This method starts the game by asking the user for their name. As long as the
@@ -322,7 +321,7 @@ class Main {
                     hero.heal( 25 );
                     break;
                 case 'm':
-                    if( monsterRoom( hero, enGen.generateEnemy() ) == false) {
+                    if( monsterRoom( hero, enGen.generateEnemy( hero.getLevel() ) ) == false) {
                         alive = false;
                     }
                     break;
