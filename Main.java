@@ -142,10 +142,6 @@ class Main {
 	Scanner input = new Scanner(System.in);
 	System.out.println("Welcome to the store! What would you like to do?");
 	System.out.println("1. Buy\n2. Exit");
-
-	Scanner input = new Scanner(System.in);
-	System.out.println("Welcome to the store! What would you like to do?");
-	System.out.println("1. Buy\n2. Exit");
 		
 	int gold = h.getGold();
 	int selection = 1;
@@ -250,7 +246,6 @@ class Main {
 			}
 		}
 	}
-    }
 		
 }
 
