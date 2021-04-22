@@ -14,9 +14,17 @@ public class Map{
     /**
      * Constructs empty map
      */
-    public Map(){
+    private Map(){
 		map = new char[5][5];
 		revealed = new boolean[5][5];
+    }
+    
+    public static Map getInstance(){
+	if (instance == null){
+	    instance = new Map();
+	}
+
+	return instance;
     }
 
     /**
