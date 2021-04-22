@@ -38,8 +38,8 @@ class MagicalEnemy extends Enemy implements Magical{
      * @return - String representation of Magic Missles cast against entity e
      */
     public String magicMissle( Entity e ) {
-        int d = (int) (Math.random() * 6 ) + 1;
-        e.takeDamage(d);
+        int d = (int)(Math.random() * 3 );
+        e.takeDamage( d );
         return getName() + " shoots " + e.getName() + " with Magic Missles for " + d + " damage.";
     }
 
@@ -50,8 +50,8 @@ class MagicalEnemy extends Enemy implements Magical{
      * @return - String representation of Fireball cast against entity e
      */
     public String fireball( Entity e ) {
-        int d = (int) (Math.random() * 4 ) + 2;
-        e.takeDamage(d);
+        int d = (int)(Math.random() * 4 );
+        e.takeDamage( d );
         return getName() + " hits " + e.getName() + " with Fireball for " + d + " damage.";
     }
 
@@ -62,8 +62,8 @@ class MagicalEnemy extends Enemy implements Magical{
      * @return - String representation of Thunderclap cast against entity e
      */
     public String thunderclap( Entity e ) {
-        int d = (int) (Math.random() * 2 ) + 3;
-        e.takeDamage(d);
+        int d = (int)(Math.random() * 3 ) + 1;
+        e.takeDamage( d );
         return getName() + " zaps " + e.getName() + " with Thunderclap for " + d + " damage.";
     }
 }

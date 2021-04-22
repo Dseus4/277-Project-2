@@ -4,7 +4,7 @@
  */
 
 class Hero extends Entity implements Magical{
-    
+
     private Map map = Map.getInstance();
     private java.awt.Point loc = new java.awt.Point();
     private int level = 1;
@@ -138,7 +138,7 @@ class Hero extends Entity implements Magical{
      * @return - If player successfully uses key
      */
     public boolean useKey() {
-        if (hasKey()) {
+        if ( hasKey() ) {
             key--;
             return true;
         }
@@ -153,7 +153,7 @@ class Hero extends Entity implements Magical{
      */
     public String attack( Entity e ) {
         int d = (int)( Math.random() * 4 ) + 1;
-        e.takeDamage(d);
+        e.takeDamage( d );
         return getName() + " attacks " + e.getName() + " for " + d + " damage.";
     }
 
@@ -164,8 +164,8 @@ class Hero extends Entity implements Magical{
      * @return - String describing the damage dealt to the opposing entity
      */
     public String magicMissle( Entity e ) {
-        int d = (int)( Math.random() * 6 )+ 1;
-        e.takeDamage(d);
+        int d = (int)( Math.random() * 6 ) + 1;
+        e.takeDamage( d );
         return getName() + " shoots " + e.getName() + " with Magic Missles for " + d + " damage.";
     }
 
@@ -176,7 +176,7 @@ class Hero extends Entity implements Magical{
      * @return - String describing the damage dealt to the opposing entity
      */
     public String fireball( Entity e ) {
-        int d = (int)( Math.random() * 4 )+ 2;
+        int d = (int)( Math.random() * 4 ) + 2;
         e.takeDamage(d);
         return getName() + " hits " + e.getName() + " with Fireball for " + d + " damage.";
     }
@@ -188,8 +188,8 @@ class Hero extends Entity implements Magical{
      * @return - String describing the damage dealt to the opposing entity
      */
     public String thunderclap( Entity e ) {
-        int d = (int)( Math.random() * 2 )+ 3;
-        e.takeDamage(d);
+        int d = (int)( Math.random() * 2 ) + 3;
+        e.takeDamage( d );
         return getName() + " zaps " + e.getName() + " with Thunderclap for " + d + " damage.";
     }
 
