@@ -13,15 +13,15 @@ class Main {
         
 	int userIn;
 	
-        System.out.println( "You've encountered a " + e.getName());
+        System.out.println( "You've encountered a " + e.getName() );
 
         boolean inRoom = true;
         while( inRoom ) {
             System.out.println( e.toString() );
-            System.out.println( "1. Fight\n2. Run away");
+            System.out.println( "1. Fight\n2. Run away" );
 
             userIn = 0;
-            if(in.hasNextInt()) {
+            if( in.hasNextInt() ) {
                 userIn = in.nextInt();
             }
             else {
@@ -38,25 +38,25 @@ class Main {
                 case 2:
                     //move player random direction, if is wall, move valid direction
                     char testDir;
-                    switch( (int)( Math.random() * 4 )) {
+                    switch( (int)( Math.random() * 4 ) ) {
                         case 0:
                             testDir = h.goNorth();
-                            if( testDir != 'x') {
+                            if( testDir != 'x' ) {
                                 return true;
                             }
                         case 1:
                             testDir = h.goSouth();
-                            if( testDir != 'x') {
+                            if( testDir != 'x' ) {
                                 return true;
                             }
                         case 2:
                             testDir = h.goEast();
-                            if( testDir != 'x') {
+                            if( testDir != 'x' ) {
                                 return true;
                             }
                         case 3:
                             testDir = h.goWest();
-                            if( testDir != 'x') {
+                            if( testDir != 'x' )  {
                                 return true;
                             }
                         default:
@@ -142,110 +142,89 @@ class Main {
         return true;
     }
     
-    public static void Store(Hero h) {
-	    Scanner input = new Scanner(System.in);
-	    System.out.println("Welcome to the store! What would you like to do?");
-	    System.out.println("1. Buy\n2. Exit");
+    public static void Store( Hero h ) {
+	    Scanner input = new Scanner( System.in );
+	    System.out.println( "Welcome to the store! What would you like to do?" );
+	    System.out.println( "1. Buy\n2. Exit" );
         
 	    int gold = h.getGold();
 	    int selection = 1;
 
-	    while (true)
-	    {
-	    	if (input.hasNextInt())
-	    	{
+	    while ( true ) {
+	    	if ( input.hasNextInt() ) {
 	    		selection = input.nextInt();
 
-	    		if (selection > 0 && selection < 3)
-	    		{
+	    		if ( selection > 0 && selection < 3 ) {
 	    			break;
 	    		}
 	    	}
-	    	else
-	    	{
+	    	else {
 	    		input.nextLine();
 	    	}
 	    }
 
-	    while (selection == 1)
-	    {
-	    	System.out.println("What would you like to buy?");
-	    	System.out.println("1. Health Potions: 25 Gold\n2. Key: 50 Gold");
-	    	System.out.println("Amount: " + gold);
+	    while (selection == 1) {
+	    	System.out.println( "What would you like to buy?" );
+	    	System.out.println( "1. Health Potions: 25 Gold\n2. Key: 50 Gold" );
+	    	System.out.println( "Amount: " + gold );
 
 
-	    	while (true)
-	    	{
-	    		if (input.hasNextInt())
-	    		{
+	    	while (true) {
+	    		if ( input.hasNextInt() ) {
 	    			selection = input.nextInt();
 
-	    			if (selection > 0 && selection < 3)
-	    			{
+	    			if ( selection > 0 && selection < 3 ) {
 	    				break;
 	    			}
 	    		}
-	    		else
-	    		{
+	    		else {
 	    			input.nextLine();
 	    		}
 	    	}
 
 
-	    	if (selection == 1)
-	    	{
-            
+	    	if ( selection == 1 ) {
 
-	    		if (gold >= 25)
-	    		{
-	    			h.spendGold(25);
+	    		if ( gold >= 25 ) {
+	    			h.spendGold( 25 );
 	    			gold -= 25;
-	    			System.out.println("You got a potion! Using it now...");
+	    			System.out.println( "You got a potion! Using it now..." );
 	    			// Potions are used immediately.
-	    			h.heal(25);
+	    			h.heal( 25 );
 	    		}
-	    		else
-	    		{
-	    			System.out.println("Not enough gold! Come back when you have gold.");
+	    		else {
+	    			System.out.println( "Not enough gold! Come back when you have gold." );
 	    			break;
 	    		}
 
 	    	}
-	    	else if (selection == 2)
-	    	{
-            
+	    	else if ( selection == 2 ) {
 
-
-	    		if (gold >= 50)
-	    		{
-	    			h.spendGold(50);
+	    		if ( gold >= 50 ) {
+	    			h.spendGold( 50 );
 	    			gold =- 50;
-	    			System.out.println("You got a key!");
+	    			System.out.println( "You got a key!" );
 	    			h.pickUpKey();
 	    		}
-	    		else
-	    		{
-	    			System.out.println("Not enough gold! Come back when you have gold.");
+	    		else {
+	    			System.out.println( "Not enough gold! Come back when you have gold." );
 	    			break;
 	    		}
 
 	    	}
 
-	    	System.out.println("1. Buy again\n2. Quit");
+	    	System.out.println( "1. Buy again\n2. Quit" );
 
-	    	while (true)
-	    	{
-	    		if (input.hasNextInt())
-	    		{
+	    	while ( true ) {
+
+	    		if ( input.hasNextInt() ) {
 	    			selection = input.nextInt();
 
-	    			if (selection > 0 && selection < 3)
-	    			{
+	    			if ( selection > 0 && selection < 3 ) {
 	    				break;
 	    			}
 	    		}
-	    		else
-	    		{
+	    		else {
 	    			input.nextLine();
 	    		}
 	    	}
@@ -268,7 +247,7 @@ class Main {
         System.out.print( "What is your name, traveler? " );
         String name = in.nextLine();
         Hero hero = new Hero( name );
-	Map map = Map.getInstance();
+	    Map map = Map.getInstance();
         EnemyGenerator enGen = new EnemyGenerator();
         
         char roomC = 's';
@@ -305,7 +284,7 @@ class Main {
                     break;
             }
 	    
-	    map.reveal(hero.getLoc());
+	        map.reveal( hero.getLoc() );
 		
             switch( roomC ) {
                 case 'x':
@@ -330,7 +309,7 @@ class Main {
                     if( monsterRoom( hero, enGen.generateEnemy( hero.getLevel() ) ) == false) {
                         alive = false;
                     }
-		    map.removeCharAtLoc(hero.getLoc());
+		            map.removeCharAtLoc(hero.getLoc());
 	           
                     break;
             }
