@@ -204,6 +204,10 @@ class Hero extends Entity implements Magical{
     public void spendGold(int g){
         gold -= g;
     }
+
+    public int getLevel(){
+        return level;
+    }
     
 }
     
