@@ -4,11 +4,13 @@
  */
 
 class Hero extends Entity implements Magical{
+    
     private Map map = Map.getInstance();
     private java.awt.Point loc = new java.awt.Point();
     private int level = 1;
     private int key = 0;
     private int gold = 0;
+
     /**
      * Construct hero with 25 health and place hero in map 1.
      * 
@@ -190,38 +192,45 @@ class Hero extends Entity implements Magical{
         e.takeDamage(d);
         return getName() + " zaps " + e.getName() + " with Thunderclap for " + d + " damage.";
     }
+
     /**
     * getGold returns gold
     *
     *@return - amount of gold hero has currently
     */
-    public int getGold(){
+    public int getGold() {
         return gold;
     }
+
     /**
     * collectedGold - adds g to gold when hero finds gold
     *
     *@Param g - amount of gold hero has found
     */
-    public void collectGold(int g){
+    public void collectGold( int g ) {
         gold += g;
     }
+
     /**
     *spendGold - subtracts g from gold when hero spends gold
     *
     *@Param g - amount of gold Hero spends
     */
-    public void spendGold(int g){
+    public void spendGold( int g ) {
         gold -= g;
     }
 
-    public int getLevel(){
+    /**
+     * getLevel - gets hero's level
+     * 
+     * @return - hero's current level
+     */
+    public int getLevel() {
         return level;
     }
     
-    public java.awt.Point getLoc(){
+    public java.awt.Point getLoc() {
         return loc;
-    
     }
     
 }
