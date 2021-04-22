@@ -216,7 +216,7 @@ class Main {
             
 
 
-	    		if (gold() >= 50)
+	    		if (gold >= 50)
 	    		{
 	    			h.spendGold(50);
 	    			gold =- 50;
