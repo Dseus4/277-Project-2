@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 class Main {
     /**
      * This method lets the user know they encountered a monster room and gives
@@ -37,32 +37,24 @@ class Main {
                     break;
                 case 2:
                     //move player random direction, if is wall, move valid direction
-                    char testDir;
-                    switch( (int)( Math.random() * 4 ) ) {
-                        case 0:
-                            testDir = h.goNorth();
-                            if( testDir != 'x' ) {
-                                return true;
-                            }
-                        case 1:
-                            testDir = h.goSouth();
-                            if( testDir != 'x' ) {
-                                return true;
-                            }
-                        case 2:
-                            testDir = h.goEast();
-                            if( testDir != 'x' ) {
-                                return true;
-                            }
-                        case 3:
-                            testDir = h.goWest();
-                            if( testDir != 'x' )  {
-                                return true;
-                            }
-                        default:
-                            h.goEast();
-                            return true;
+                    char testDir = 'x';
+                    while( testDir == 'x' ){
+                        switch( (int)( Math.random() * 4 ) ) {
+                            case 0:
+                                testDir = h.goNorth();
+                                break;
+                            case 1:
+                                testDir = h.goSouth();
+                                break;
+                            case 2:
+                                testDir = h.goEast();
+                                break;
+                            case 3:
+                                testDir = h.goWest();
+                                break;
+                        }
                     }
+                    return true;
             }
 
             if( e.getHP() == 0 ) {
