@@ -10,8 +10,9 @@ class Main {
      */
     static boolean monsterRoom( Hero h , Enemy e ) {
         Scanner in = new Scanner( System.in );
-        int userIn;
-
+        
+	int userIn;
+	
         System.out.println( "You've encountered a " + e.getName());
 
         boolean inRoom = true;
@@ -32,6 +33,7 @@ class Main {
                     if( fight( h , e ) == false ) {
                         return false;
                     }
+		
                     break;
                 case 2:
                     //move player random direction, if is wall, move valid direction
@@ -65,6 +67,7 @@ class Main {
 
             if( e.getHP() == 0 ) {
                 System.out.println( "You defeated the " + e.getName() + "!" );
+		
                 return true;
             }
         }
@@ -84,7 +87,7 @@ class Main {
     static boolean fight( Hero h , Enemy e ){
         Scanner in = new Scanner( System.in );
         int userIn;
-
+	
         System.out.println( "1. Physical Attack\n2. Magic Attack" );
         
         userIn = 0;
@@ -135,6 +138,7 @@ class Main {
             }
         }
 	h.collectGold((int) (Math.random() * 8) + 3); // Gives Hero 3-10 gold after defeating the enemy
+	
         return true;
     }
     
@@ -264,7 +268,7 @@ class Main {
         System.out.print( "What is your name, traveler? " );
         String name = in.nextLine();
         Hero hero = new Hero( name );
-
+	Map map = Map.getInstance();
         EnemyGenerator enGen = new EnemyGenerator();
         
         char roomC = 's';
@@ -300,7 +304,9 @@ class Main {
                     roomC = ' ';
                     break;
             }
-
+	    
+	    map.reveal(hero.getLoc());
+		
             switch( roomC ) {
                 case 'x':
                     System.out.println( "You cannot go that way." );
@@ -324,6 +330,8 @@ class Main {
                     if( monsterRoom( hero, enGen.generateEnemy( hero.getLevel() ) ) == false) {
                         alive = false;
                     }
+		    map.removeCharAtLoc(hero.getLoc());
+	           
                     break;
             }
         }
