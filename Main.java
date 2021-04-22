@@ -134,7 +134,7 @@ class Main {
                 return false;
             }
         }
-	h.collectGold((int) (Math.random() * 8) + 3);
+	h.collectGold((int) (Math.random() * 8) + 3); // Gives Hero 3-10 gold after defeating the enemy
         return true;
     }
     
