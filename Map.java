@@ -8,6 +8,7 @@ import java.awt.Point;
  **/
 public class Map{
     
+    private static Map instance = null;
     public char[][] map;
     public boolean[][] revealed;
 
