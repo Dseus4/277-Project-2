@@ -1,0 +1,9 @@
+public class Troll extends Enemy{
+
+  public Troll(){
+    n = "Troll"
+    hp = 3;
+    maxHp = 3;
+  }
+  
+}
