@@ -25,6 +25,9 @@ class EnemyGenerator{
                 break;
             case 3:
                 outEnemy = new Goblin();
+                break;
+            default:
+                outEnemy = new Troll();
         }
         if( level > 1 ){
             rand_enemy = (int)( Math.random() * 2 );
