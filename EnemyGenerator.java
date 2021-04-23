@@ -36,6 +36,7 @@ class EnemyGenerator{
                 switch( rand_enemy ){
                     case 0:
                         outEnemy = new Warrior( outEnemy );
+                        break;
                     case 1:
                         outEnemy = new Warlock( outEnemy );
                 }
