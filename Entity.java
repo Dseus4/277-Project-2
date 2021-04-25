@@ -61,7 +61,7 @@ public abstract class Entity {
      * @param h - Amount of health being healed to the entity
      */
     public void heal( int h ) {
-        if ( hp + h >= maxHp ){
+        if ( getHP() + h >= maxHp ){
             hp = maxHp;
         } else {
             hp += h;
@@ -74,7 +74,7 @@ public abstract class Entity {
      * @param d - Aamount of damage being taken
      */
     public void takeDamage( int d ) {
-        if ( hp - d <= 0 ) {
+        if ( getHP() - d <= 0 ) {
             hp = 0;
         } else {
             hp -= d;
@@ -87,6 +87,6 @@ public abstract class Entity {
      * @return - String representation of entity
      */
     public String toString() {
-        return name + "\nHp: " + hp + "/" + maxHp;
+        return getName() + "\nHp: " + getHP() + "/" + getMaxHP();
     }
 }
