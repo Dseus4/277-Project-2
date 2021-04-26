@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.awt.Point;
 class Main {
     /**
      * This method lets the user know they encountered a monster room and gives
@@ -10,6 +11,7 @@ class Main {
      */
     static boolean monsterRoom( Hero h , Enemy e ) {
         Scanner in = new Scanner( System.in );
+	Map map = Map.getInstance();
         
 	int userIn;
 	
@@ -42,15 +44,19 @@ class Main {
                         switch( (int)( Math.random() * 4 ) ) {
                             case 0:
                                 testDir = h.goNorth();
+				testDir = map.getCharAtLoc(h.getLoc());
                                 break;
                             case 1:
                                 testDir = h.goSouth();
-                                break;
+                                testDir = map.getCharAtLoc(h.getLoc());
+				break;
                             case 2:
                                 testDir = h.goEast();
-                                break;
+                                testDir = map.getCharAtLoc(h.getLoc());
+				break;
                             case 3:
                                 testDir = h.goWest();
+				testDir = map.getCharAtLoc(h.getLoc());
                                 break;
                         }
                     }
@@ -59,7 +65,7 @@ class Main {
 
             if( e.getHP() == 0 ) {
                 System.out.println( "You defeated the " + e.getName() + "!" );
-		
+		map.removeCharAtLoc(h.getLoc());
                 return true;
             }
         }
@@ -245,7 +251,16 @@ class Main {
         char roomC = 's';
         int userIn;
         boolean alive = true;
+	Point loc;
+        
+	map.loadMap(hero.getLevel());
+        loc = map.findStart();
+        
+        hero.getLoc().x = (int)loc.getX();
+        hero.getLoc().y = (int)loc.getY();
+	    
         while( alive ) {
+	    System.out.println(map.mapToString(hero.getLoc()));
             System.out.println( hero.toString() );
             System.out.println( DIRECTION_MENU );
 
@@ -277,6 +292,7 @@ class Main {
             }
 	    
 	        map.reveal( hero.getLoc() );
+            	roomC = map.getCharAtLoc(hero.getLoc());
 		
             switch( roomC ) {
                 case 'x':
@@ -291,7 +307,12 @@ class Main {
                     break;
                 case 'f':
                     System.out.println( "You found the exit. Proceeding to the next level." );
-                    hero.levelUp();
+                    
+		    hero.levelUp();
+                    map.loadMap(hero.getLevel());
+                    loc = map.findStart();
+
+                    map.reveal(loc);
                     break;
                 case 'i':
                     System.out.println( "You found a Health Potion! You drink it to restore your health." );
@@ -301,7 +322,6 @@ class Main {
                     if( monsterRoom( hero, enGen.generateEnemy( hero.getLevel() ) ) == false) {
                         alive = false;
                     }
-		            map.removeCharAtLoc(hero.getLoc());
 	           
                     break;
             }
