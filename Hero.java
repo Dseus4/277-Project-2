@@ -6,7 +6,7 @@
 class Hero extends Entity implements Magical{
 
     
-    private java.awt.Point loc = new java.awt.Point();
+    private java.awt.Point loc = Map.getInstance().findStart();
     private int level = 1;
     private int key = 0;
     private int gold = 0;
@@ -18,6 +18,9 @@ class Hero extends Entity implements Magical{
      */
     public Hero( String n ) {
         super( n , 25 );
+        Map.getInstance().loadMap(level);
+        Map.getInstance().reveal(loc);
+        
       
     }
 
@@ -38,7 +41,7 @@ class Hero extends Entity implements Magical{
     public String toString() {
         return 
             super.toString() +
-            "\nLevel: " + level;
+            "\nLevel: " + level + Map.getInstance().mapToString(loc);
             
     }
 
@@ -58,6 +61,8 @@ class Hero extends Entity implements Magical{
     public char goNorth() {
         if( loc.x > 0 ) {
             loc.x--;
+            
+            return Map.getInstance().getCharAtLoc(loc); 
        
       }
       return 'x';
@@ -71,7 +76,7 @@ class Hero extends Entity implements Magical{
     public char goSouth() {
         if( loc.x < 4 ) {
               loc.x++;
-              
+              return Map.getInstance().getCharAtLoc(loc); 
         }
         return 'x';
     }
@@ -84,7 +89,7 @@ class Hero extends Entity implements Magical{
     public char goEast() {
         if( loc.y < 4 ) {
             loc.y++;
-            
+            return Map.getInstance().getCharAtLoc(loc); 
         }
         return 'x';
     }
@@ -97,7 +102,7 @@ class Hero extends Entity implements Magical{
     public char goWest() {
         if(loc.y > 0) {
             loc.y--;
-           
+           return Map.getInstance().getCharAtLoc(loc); 
         }
         return 'x';
     }
