@@ -251,16 +251,10 @@ class Main {
         char roomC = 's';
         int userIn;
         boolean alive = true;
-	Point loc;
-        
-	map.loadMap(hero.getLevel());
-        loc = map.findStart();
-        
-        hero.getLoc().x = (int)loc.getX();
-        hero.getLoc().y = (int)loc.getY();
+	
 	    
         while( alive ) {
-	    System.out.println(map.mapToString(hero.getLoc()));
+	    
             System.out.println( hero.toString() );
             System.out.println( DIRECTION_MENU );
 
@@ -292,7 +286,7 @@ class Main {
             }
 	    
 	        map.reveal( hero.getLoc() );
-            	roomC = map.getCharAtLoc(hero.getLoc());
+            	
 		
             switch( roomC ) {
                 case 'x':
@@ -310,9 +304,9 @@ class Main {
                     
 		    hero.levelUp();
                     map.loadMap(hero.getLevel());
-                    loc = map.findStart();
+                    map.findStart();
 
-                    map.reveal(loc);
+                    map.reveal(hero.getLoc());
                     break;
                 case 'i':
                     System.out.println( "You found a Health Potion! You drink it to restore your health." );
