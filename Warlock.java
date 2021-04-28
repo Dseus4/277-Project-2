@@ -1,6 +1,7 @@
 public class Warlock extends EnemyDecorator implements Magical {
     public Warlock( Enemy e ) {
-        super( e );
+        super( e.getName(), e.getMaxHP() + 1 ); // adds 1 to the maxHP of the warlock
+        
     }
         /**
      * Magic missle attack by the Warlock against entity e (1-6).
