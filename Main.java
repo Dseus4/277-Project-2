@@ -11,10 +11,10 @@ class Main {
      */
     static boolean monsterRoom( Hero h , Enemy e ) {
         Scanner in = new Scanner( System.in );
-	Map map = Map.getInstance();
+        Map map = Map.getInstance();
         
-	int userIn;
-	
+        int userIn;
+    
         System.out.println( "You've encountered a " + e.getName() );
 
         boolean inRoom = true;
@@ -35,7 +35,7 @@ class Main {
                     if( fight( h , e ) == false ) {
                         return false;
                     }
-		
+        
                     break;
                 case 2:
                     //move player random direction, if is wall, move valid direction
@@ -44,19 +44,19 @@ class Main {
                         switch( (int)( Math.random() * 4 ) ) {
                             case 0:
                                 testDir = h.goNorth();
-				testDir = map.getCharAtLoc(h.getLoc());
+                                testDir = map.getCharAtLoc(h.getLoc());
                                 break;
                             case 1:
                                 testDir = h.goSouth();
                                 testDir = map.getCharAtLoc(h.getLoc());
-				break;
+                                break;
                             case 2:
                                 testDir = h.goEast();
                                 testDir = map.getCharAtLoc(h.getLoc());
-				break;
+                                break;
                             case 3:
                                 testDir = h.goWest();
-				testDir = map.getCharAtLoc(h.getLoc());
+                                testDir = map.getCharAtLoc(h.getLoc());
                                 break;
                         }
                     }
@@ -65,7 +65,7 @@ class Main {
 
             if( e.getHP() == 0 ) {
                 System.out.println( "You defeated the " + e.getName() + "!" );
-		map.removeCharAtLoc(h.getLoc());
+                map.removeCharAtLoc(h.getLoc());
                 return true;
             }
         }
@@ -85,7 +85,7 @@ class Main {
     static boolean fight( Hero h , Enemy e ) {
         Scanner in = new Scanner( System.in );
         int userIn;
-	
+    
         System.out.println( "1. Physical Attack\n2. Magic Attack" );
         
         userIn = 0;
@@ -135,98 +135,98 @@ class Main {
                 return false;
             }
         }
-	h.collectGold((int) (Math.random() * 8) + 3); // Gives Hero 3-10 gold after defeating the enemy
-	
+        h.collectGold((int) (Math.random() * 8) + 3); // Gives Hero 3-10 gold after defeating the enemy
+    
         return true;
     }
     
-    public static void Store( Hero h ) {
-	    Scanner input = new Scanner( System.in );
-	    System.out.println( "Welcome to the store! What would you like to do?" );
-	    System.out.println( "1. Buy\n2. Exit" );
+    public static void store( Hero h ) {
+        Scanner input = new Scanner( System.in );
+        System.out.println( "Welcome to the store! What would you like to do?" );
+        System.out.println( "1. Buy\n2. Exit" );
         
-	    int gold = h.getGold();
-	    int selection = 1;
+        int gold = h.getGold();
+        int selection = 1;  
 
-	    while ( true ) {
-	    	if ( input.hasNextInt() ) {
-	    		selection = input.nextInt();
+        while ( true ) {
+            if ( input.hasNextInt() ) {
+                selection = input.nextInt();
 
-	    		if ( selection > 0 && selection < 3 ) {
-	    			break;
-	    		}
-	    	}
-	    	else {
-	    		input.nextLine();
-	    	}
-	    }
+                if ( selection > 0 && selection < 3 ) {
+                    break;
+                }
+            }
+            else {
+                input.nextLine();
+            }
+        }
 
-	    while (selection == 1) {
-	    	System.out.println( "What would you like to buy?" );
-	    	System.out.println( "1. Health Potions: 25 Gold\n2. Key: 50 Gold" );
-	    	System.out.println( "Amount: " + gold );
-
-
-	    	while (true) {
-	    		if ( input.hasNextInt() ) {
-	    			selection = input.nextInt();
-
-	    			if ( selection > 0 && selection < 3 ) {
-	    				break;
-	    			}
-	    		}
-	    		else {
-	    			input.nextLine();
-	    		}
-	    	}
+        while (selection == 1) {
+            System.out.println( "What would you like to buy?" );
+            System.out.println( "1. Health Potions: 25 Gold\n2. Key: 50 Gold" );
+            System.out.println( "Amount: " + gold );
 
 
-	    	if ( selection == 1 ) {
+            while (true) {
+                if ( input.hasNextInt() ) {
+                    selection = input.nextInt();
 
-	    		if ( gold >= 25 ) {
-	    			h.spendGold( 25 );
-	    			gold -= 25;
-	    			System.out.println( "You got a potion! Using it now..." );
-	    			// Potions are used immediately.
-	    			h.heal( 25 );
-	    		}
-	    		else {
-	    			System.out.println( "Not enough gold! Come back when you have gold." );
-	    			break;
-	    		}
+                    if ( selection > 0 && selection < 3 ) {
+                        break;
+                    }
+                }
+                else {
+                    input.nextLine();
+                }
+            }
 
-	    	}
-	    	else if ( selection == 2 ) {
 
-	    		if ( gold >= 50 ) {
-	    			h.spendGold( 50 );
-	    			gold =- 50;
-	    			System.out.println( "You got a key!" );
-	    			h.pickUpKey();
-	    		}
-	    		else {
-	    			System.out.println( "Not enough gold! Come back when you have gold." );
-	    			break;
-	    		}
+            if ( selection == 1 ) {
 
-	    	}
+                if ( gold >= 25 ) {
+                    h.spendGold( 25 );
+                    gold -= 25;
+                    System.out.println( "You got a potion! Using it now..." );
+                    // Potions are used immediately.
+                    h.heal( 25 );
+                }
+                else {
+                    System.out.println( "Not enough gold! Come back when you have gold." );
+                    break;
+                }
 
-	    	System.out.println( "1. Buy again\n2. Quit" );
+            }
+            else if ( selection == 2 ) {
 
-	    	while ( true ) {
+                if ( gold >= 50 ) {
+                    h.spendGold( 50 );
+                    gold =- 50;
+                    System.out.println( "You got a key!" );
+                    h.pickUpKey();
+                }
+                else {
+                    System.out.println( "Not enough gold! Come back when you have gold." );
+                    break;
+                }
 
-	    		if ( input.hasNextInt() ) {
-	    			selection = input.nextInt();
+            }
 
-	    			if ( selection > 0 && selection < 3 ) {
-	    				break;
-	    			}
-	    		}
-	    		else {
-	    			input.nextLine();
-	    		}
-	    	}
-	    }
+            System.out.println( "1. Buy again\n2. Quit" );
+
+            while ( true ) {
+
+                if ( input.hasNextInt() ) {
+                    selection = input.nextInt();
+
+                    if ( selection > 0 && selection < 3 ) {
+                        break;
+                    }
+                }
+                else {
+                    input.nextLine();
+                }
+            }
+        }
     }
 
     /**
@@ -245,16 +245,16 @@ class Main {
         System.out.print( "What is your name, traveler? " );
         String name = in.nextLine();
         Hero hero = new Hero( name );
-	    Map map = Map.getInstance();
+        Map map = Map.getInstance();
         EnemyGenerator enGen = new EnemyGenerator();
         
         char roomC = 's';
         int userIn;
         boolean alive = true;
-	
-	    
+    
+        
         while( alive ) {
-	    
+        
             System.out.println( hero.toString() );
             System.out.println( DIRECTION_MENU );
 
@@ -284,10 +284,10 @@ class Main {
                     roomC = ' ';
                     break;
             }
-	    
-	        map.reveal( hero.getLoc() );
-            	
-		
+        
+            map.reveal( hero.getLoc() );
+                
+        
             switch( roomC ) {
                 case 'x':
                     System.out.println( "You cannot go that way." );
@@ -297,12 +297,12 @@ class Main {
                     break;
                 case 's':
                     System.out.println( "You're back at the start. Accessing store..." );
-                    Store(hero);
+                    store(hero);
                     break;
                 case 'f':
                     System.out.println( "You found the exit. Proceeding to the next level." );
                     
-		    hero.levelUp();
+            hero.levelUp();
                     map.loadMap(hero.getLevel());
                     map.findStart();
 
@@ -316,7 +316,7 @@ class Main {
                     if( monsterRoom( hero, enGen.generateEnemy( hero.getLevel() ) ) == false) {
                         alive = false;
                     }
-	           
+               
                     break;
             }
         }

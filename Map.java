@@ -16,16 +16,16 @@ public class Map{
      * Constructs empty map
      */
     private Map() {
-		map = new char[5][5];
-		revealed = new boolean[5][5];
+        map = new char[5][5];
+        revealed = new boolean[5][5];
     }
     
     public static Map getInstance() {
-	if (instance == null){
-	    instance = new Map();
-	}
+    if (instance == null){
+        instance = new Map();
+    }
 
-	return instance;
+    return instance;
     }
 
     /**
@@ -35,16 +35,16 @@ public class Map{
      * @param mapNum - The map number to be loaded
      **/
     public void loadMap(int mapNum) {
-    	String fileName = "";
+        String fileName = "";
         switch( mapNum ) {
-    	    case 1:
-    	        fileName = "Map1.txt";
+            case 1:
+                fileName = "Map1.txt";
                 break;
-    	    case 2:
-    	        fileName = "Map2.txt";
+            case 2:
+                fileName = "Map2.txt";
                 break;
             case 3:
-    	        fileName = "Map3.txt";
+                fileName = "Map3.txt";
                 break;
         }
         try{
@@ -77,7 +77,7 @@ public class Map{
      * @return - Char at p
      **/
     public char getCharAtLoc( Point p ) {
-		return map[p.x][p.y];
+        return map[p.x][p.y];
     }
 
     /**
@@ -87,7 +87,7 @@ public class Map{
      * @return outMap - string representation of the map
      **/
     public String mapToString( Point p ) {
-		String outMap = "";
+        String outMap = "";
         for ( int x = 0; x < 5; ++x ) {
             for ( int y = 0; y < 5; ++y ) {
                 if ( x == p.x && y == p.y ) {
@@ -103,7 +103,7 @@ public class Map{
             outMap += '\n';
         }
         outMap = outMap.substring( 0 , ( outMap.length() - 1 ) ) ;
-		return outMap;
+        return outMap;
     }
 
     /**
@@ -113,14 +113,14 @@ public class Map{
      **/
 
     public Point findStart() {
-		for ( int x = 0; x < 5; x++ ) {
-			for ( int y = 0; y < 5; y++ ) {
-				if ( map[x][y] == 's' ){
+        for ( int x = 0; x < 5; x++ ) {
+            for ( int y = 0; y < 5; y++ ) {
+                if ( map[x][y] == 's' ){
                     return new Point( x , y );
-				}
-			}
-		}//end for
-		return new Point();
+                }
+            }
+        }//end for
+        return new Point();
     }
 
     /**
@@ -129,7 +129,7 @@ public class Map{
      * @param p - Point to be revealed
      **/
     public void reveal( Point p ) {
-		revealed[p.x][p.y] = true;
+        revealed[p.x][p.y] = true;
     }
 
     /**
@@ -140,7 +140,7 @@ public class Map{
     public void removeCharAtLoc(Point p) {
         //avoids clearing start and finish
         if( map[p.x][p.y] != 's' && map[p.x][p.y] != 'f') {
-		    map[p.x][p.y] = 'n';
+            map[p.x][p.y] = 'n';
         }
     }
 
