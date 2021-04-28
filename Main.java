@@ -300,13 +300,18 @@ class Main {
                     store( hero );
                     break;
                 case 'f':
-                    System.out.println( "You found the exit. Proceeding to the next level." );
+                    if( hero.useKey() ) {
+                        System.out.println( "You found the exit. Proceeding to the next level." );
                     
-                    hero.levelUp();
-                    map.loadMap( hero.getLevel() );
-                    map.findStart();
+                        hero.levelUp();
+                        map.loadMap( hero.getLevel() );
+                        map.findStart();
 
-                    map.reveal( hero.getLoc() );
+                        map.reveal( hero.getLoc() );
+                    }
+                    else {
+                        System.out.println( "You found the exit. You do not have a key to progress.");
+                    }
                     break;
                 case 'i':
                     switch( (int)( Math.random() * 2) ) {
