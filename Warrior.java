@@ -1,6 +1,6 @@
 public class Warrior extends EnemyDecorator {
     public Warrior( Enemy e ) {
-        super( e.getName(), e.getMaxHP() +2 );
+        super( e, "Warrior", 2 );
     }
 
     public String attack( Entity e ){
