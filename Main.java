@@ -297,20 +297,28 @@ class Main {
                     break;
                 case 's':
                     System.out.println( "You're back at the start. Accessing store..." );
-                    store(hero);
+                    store( hero );
                     break;
                 case 'f':
                     System.out.println( "You found the exit. Proceeding to the next level." );
                     
-            hero.levelUp();
-                    map.loadMap(hero.getLevel());
+                    hero.levelUp();
+                    map.loadMap( hero.getLevel() );
                     map.findStart();
 
-                    map.reveal(hero.getLoc());
+                    map.reveal( hero.getLoc() );
                     break;
                 case 'i':
-                    System.out.println( "You found a Health Potion! You drink it to restore your health." );
-                    hero.heal( 25 );
+                    switch( (int)( Math.random() * 2) ) {
+                        case 0:
+                            System.out.println( "You found a Health Potion! You drink it to restore your health." );
+                            hero.heal( 25 );
+                            break;
+                        case 1:
+                            System.out.println( "You found a Key!" );
+                            hero.pickUpKey();
+                            break;
+                    }
                     break;
                 case 'm':
                     if( monsterRoom( hero, enGen.generateEnemy( hero.getLevel() ) ) == false) {
