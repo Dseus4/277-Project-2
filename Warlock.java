@@ -1,6 +1,6 @@
 public class Warlock extends EnemyDecorator implements Magical {
     public Warlock( Enemy e ) {
-        super( e.getName(), e.getMaxHP() + 1 ); // adds 1 to the maxHP of the warlock
+        super( e, "Warlock", 1 ); // adds 1 to the maxHP of the warlock
         
     }
         /**
