@@ -305,7 +305,7 @@ class Main {
                     
                         hero.levelUp();
                         map.loadMap( hero.getLevel() );
-                        map.findStart();
+                        
 
                         map.reveal( hero.getLoc() );
                     }
