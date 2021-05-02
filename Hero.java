@@ -6,7 +6,7 @@
 class Hero extends Entity implements Magical{
 
     
-    private java.awt.Point loc = Map.getInstance().findStart();
+    private java.awt.Point loc;
     private int level = 1;
     private int key = 0;
     private int gold = 0;
@@ -19,8 +19,8 @@ class Hero extends Entity implements Magical{
     public Hero( String n ) {
         super( n , 25 );
         
-        
-      
+        Map.getInstance.loadMap(level);
+        loc = Map.getInstance().findStart();
     }
 
     /**
@@ -50,6 +50,7 @@ class Hero extends Entity implements Magical{
     public void levelUp() {
         level = ( level ) % 3 + 1;
         
+        Map.getInstance().loadMap(level);
     }
 
     /**
