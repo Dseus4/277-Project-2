@@ -1,6 +1,3 @@
-import java.util.Scanner;
-import java.io.File;
-
 /**
  * Generate enemies in the game from the provided txt file.
  */
