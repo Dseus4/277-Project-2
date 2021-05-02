@@ -6,7 +6,7 @@ public class Warrior extends EnemyDecorator {
     public String attack( Entity e ){
         int d = (int)( Math.random() * 3 ) + 1;
         e.takeDamage( d );
-        return super.attack( e ) + '\n' + getName() + " attacks " + e.getName() + " for " + d + " damage.\n";
+        return super.attack( e ) + '\n' + "attacks " + e.getName() + " for " + d + " damage.";
     }
 
     public String getName() {
