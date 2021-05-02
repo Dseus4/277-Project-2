@@ -8,6 +8,6 @@ public class Orc extends Enemy {
     public String attack( Entity e ){
         int d = (int)( Math.random() * 5 );
         e.takeDamage( d );
-        return getName() + " attacks " + e.getName() + " for " + d + " damage.";
+        return "attacks " + e.getName() + " for " + d + " damage.";
     }
 }

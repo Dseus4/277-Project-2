@@ -7,6 +7,6 @@ public class Goblin extends Enemy {
     public String attack( Entity e ){
         int d = (int)( Math.random() * 2 ) + 1 ;
         e.takeDamage( d );
-        return getName() + " attacks " + e.getName() + " for " + d + " damage.";
+        return "attacks " + e.getName() + " for " + d + " damage.";
     }
 }

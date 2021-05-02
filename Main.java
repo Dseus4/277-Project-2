@@ -98,7 +98,7 @@ class Main {
 
         switch( userIn ) {
             case 1:
-                System.out.println( h.attack( e ) );
+                System.out.println( h.getName() + " " + h.attack( e ) );
                 break;
             case 2:
                 System.out.println( h.MAGIC_MENU );
@@ -130,7 +130,7 @@ class Main {
         }
 
         if( e.getHP() > 0 ) {
-            System.out.println( e.attack( h ) );
+            System.out.println( e.getName() + " " + e.attack( h ) );
             if( h.getHP() == 0 ) {
                 return false;
             }
