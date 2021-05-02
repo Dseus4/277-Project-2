@@ -19,7 +19,7 @@ public class Map{
         map = new char[5][5];
         revealed = new boolean[5][5];
         
-        loadMap(1);
+        
     }
     
     public static Map getInstance() {
