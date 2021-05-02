@@ -19,7 +19,7 @@ class Hero extends Entity implements Magical{
     public Hero( String n ) {
         super( n , 25 );
         
-        Map.getInstance.loadMap(level);
+        Map.getInstance().loadMap(level);
         loc = Map.getInstance().findStart();
     }
 
@@ -40,7 +40,7 @@ class Hero extends Entity implements Magical{
     public String toString() {
         return 
             super.toString() +
-            "\nLevel: " + level + Map.getInstance().mapToString(loc);
+            "\nLevel: " + level + '\n' + Map.getInstance().mapToString(loc);
             
     }
 
