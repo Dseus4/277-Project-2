@@ -18,8 +18,7 @@ class Hero extends Entity implements Magical{
      */
     public Hero( String n ) {
         super( n , 25 );
-        Map.getInstance().loadMap(level);
-        Map.getInstance().reveal(loc);
+        
         
       
     }
