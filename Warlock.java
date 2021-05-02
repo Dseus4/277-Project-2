@@ -12,7 +12,7 @@ public class Warlock extends EnemyDecorator implements Magical {
     public String magicMissle( Entity e ) {
         int d = (int)( Math.random() * 3 );
         e.takeDamage( d );
-        return getName() + " shoots " + e.getName() + " with Magic Missles for " + d + " damage.";
+        return "shoots " + e.getName() + " with Magic Missles for " + d + " damage.";
     }
 
     /**
@@ -24,7 +24,7 @@ public class Warlock extends EnemyDecorator implements Magical {
     public String fireball( Entity e ) {
         int d = (int)( Math.random() * 4 );
         e.takeDamage(d);
-        return getName() + " hits " + e.getName() + " with Fireball for " + d + " damage.";
+        return "hits " + e.getName() + " with Fireball for " + d + " damage.";
     }
 
     /**
@@ -36,7 +36,7 @@ public class Warlock extends EnemyDecorator implements Magical {
     public String thunderclap( Entity e ) {
         int d = (int)( Math.random() * 3 ) + 1;
         e.takeDamage( d );
-        return getName() + " zaps " + e.getName() + " with Thunderclap for " + d + " damage.";
+        return "zaps " + e.getName() + " with Thunderclap for " + d + " damage.";
     }
     
     public String attack( Entity e ) {
@@ -52,7 +52,7 @@ public class Warlock extends EnemyDecorator implements Magical {
                 out = thunderclap( e );
                 break;
         }
-        return super.attack( e ) + out;
+        return super.attack( e ) + "\n" + out;
     }
 
     public String getName() {
