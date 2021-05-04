@@ -251,7 +251,7 @@ class Main {
         
         while( alive ) {
         
-            System.out.println( hero.toString() );
+            //System.out.println( hero.toString() );
             map.reveal( hero.getLoc() );
                 
         
@@ -265,7 +265,6 @@ class Main {
                 case 's':
                     System.out.println( "You're back at the start. Accessing store..." );
                     store( hero );
-                    System.out.println( hero.toString() );
                     break;
                 case 'f':
                     if( hero.useKey() ) {
@@ -304,7 +303,7 @@ class Main {
                     continue;
             }
 
-            
+            System.out.println( hero.toString() );
             System.out.println( DIRECTION_MENU );
 
             userIn = 0;
