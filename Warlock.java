@@ -46,7 +46,7 @@ public class Warlock extends EnemyDecorator implements Magical {
     }
     
     /**
-     * String attack method that randomly selects a spell for the Enemy to do.
+     * String attack method that randomly selects a spell for the Enemy to do and is decorated with the original attack.
      * 
      * @param e - The opposing entity being attacked
      * @return - String spell describing the damage dealt to the opposing entity
