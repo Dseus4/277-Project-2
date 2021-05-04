@@ -136,6 +136,11 @@ class Main {
         return true;
     }
     
+    /**
+     * This method allows the user to buy health potions or keys on returning to the start of a level.
+     * 
+     * @param h - User controlled Hero object
+     */ 
     public static void store( Hero h ) {
         Scanner input = new Scanner( System.in );
         System.out.println( "Welcome to the store! What would you like to do?" );
