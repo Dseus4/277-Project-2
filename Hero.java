@@ -221,6 +221,11 @@ class Hero extends Entity implements Magical{
         return level;
     }
     
+    /**
+     * getLoc() - gets hero's location
+     * 
+     * @return - hero's location as a Point object
+     */
     public java.awt.Point getLoc() {
         return loc;
     }
