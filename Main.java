@@ -324,6 +324,9 @@ class Main {
                             hero.pickUpKey();
                             break;
                     }
+                    
+                    map.reveal(hero.getLoc());
+                    map.removeCharAtLoc(hero.getLoc());
                     break;
                 case 'm':
                     if( monsterRoom( hero, enGen.generateEnemy( hero.getLevel() ) ) == false) {
