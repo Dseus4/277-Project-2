@@ -244,7 +244,7 @@ class Main {
         Map map = Map.getInstance();
         EnemyGenerator enGen = new EnemyGenerator();
         
-        char roomC = 's';
+        char roomC = ' ';
         int userIn;
         boolean alive = true;
     
@@ -252,35 +252,6 @@ class Main {
         while( alive ) {
         
             System.out.println( hero.toString() );
-            System.out.println( DIRECTION_MENU );
-
-            userIn = 0;
-            if(in.hasNextInt()) {
-                userIn = in.nextInt();
-            }
-            else {
-                in.nextLine();
-            }
-
-            switch( userIn ) {
-                case 1:
-                    roomC = hero.goNorth();
-                    break;
-                case 2:
-                    roomC = hero.goSouth();
-                    break;
-                case 3:
-                    roomC = hero.goEast();
-                    break;
-                case 4:
-                    roomC = hero.goWest();
-                    break;
-                case 5:
-                    alive = false;
-                    roomC = ' ';
-                    break;
-            }
-        
             map.reveal( hero.getLoc() );
                 
         
@@ -328,7 +299,37 @@ class Main {
                     if( monsterRoom( hero, enGen.generateEnemy( hero.getLevel() ) ) == false) {
                         alive = false;
                     }
-               
+                    roomC = Map.getInstance().getCharAtLoc(hero.getLoc());
+                    continue;
+            }
+
+            
+            System.out.println( DIRECTION_MENU );
+
+            userIn = 0;
+            if(in.hasNextInt()) {
+                userIn = in.nextInt();
+            }
+            else {
+                in.nextLine();
+            }
+
+            switch( userIn ) {
+                case 1:
+                    roomC = hero.goNorth();
+                    break;
+                case 2:
+                    roomC = hero.goSouth();
+                    break;
+                case 3:
+                    roomC = hero.goEast();
+                    break;
+                case 4:
+                    roomC = hero.goWest();
+                    break;
+                case 5:
+                    alive = false;
+                    roomC = ' ';
                     break;
             }
         }
