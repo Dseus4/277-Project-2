@@ -40,7 +40,7 @@ class Hero extends Entity implements Magical{
     public String toString() {
         return 
             super.toString() +
-            "\nLevel: " + level + '\n' + Map.getInstance().mapToString(loc);
+            "\nLevel: " + level + "\nGold: " + gold + '\n' + Map.getInstance().mapToString(loc);
             
     }
 
