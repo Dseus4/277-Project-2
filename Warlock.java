@@ -1,4 +1,10 @@
 public class Warlock extends EnemyDecorator implements Magical {
+    
+    /**
+     * Constructs decorated enemy with name, health, and original class.
+     * 
+     * @param e - Enemy to be decorated
+     */
     public Warlock( Enemy e ) {
         super( e , e.getName() , e.getMaxHP() + 1 );
         
