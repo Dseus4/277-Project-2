@@ -18,14 +18,18 @@ public class Map{
     private Map() {
         map = new char[5][5];
         revealed = new boolean[5][5];
-        
-        
     }
     
+    /**
+     * Retreives the single static instance of Map if it exists or
+     * sets a new Map object if the instance is not initialized.
+     * 
+     * @return - static Map object
+     */
     public static Map getInstance() {
-    if (instance == null){
-        instance = new Map();
-    }
+        if (instance == null){
+            instance = new Map();
+        }
 
     return instance;
     }
@@ -113,7 +117,6 @@ public class Map{
      * 
      * @return - Starting Point
      **/
-
     public Point findStart() {
         for ( int x = 0; x < 5; x++ ) {
             for ( int y = 0; y < 5; y++ ) {
