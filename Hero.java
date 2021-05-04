@@ -48,9 +48,9 @@ class Hero extends Entity implements Magical{
      * Upon leveling up, a new map will be loaded and the level will be increased
      */
     public void levelUp() {
-        level = ( level ) % 3 + 1;
         
-        Map.getInstance().loadMap(level);
+        Map.getInstance().loadMap(level%3+1);
+        level += 1;
     }
 
     /**
