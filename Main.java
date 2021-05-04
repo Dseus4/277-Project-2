@@ -265,6 +265,7 @@ class Main {
                 case 's':
                     System.out.println( "You're back at the start. Accessing store..." );
                     store( hero );
+                    System.out.println( hero.toString() );
                     break;
                 case 'f':
                     if( hero.useKey() ) {
