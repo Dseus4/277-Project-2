@@ -4,7 +4,7 @@ public class Warlock extends EnemyDecorator implements Magical {
         
     }
         /**
-     * Magic missle attack by the Warlock against entity e (1-6).
+     * Magic missle attack by the Warlock against entity e (0-2).
      * 
      * @param e - The opposing entity being attacked
      * @return - String describing the damage dealt to the opposing entity
@@ -16,7 +16,7 @@ public class Warlock extends EnemyDecorator implements Magical {
     }
 
     /**
-     * Fireball attack by the Warlock against entity e(2-5).
+     * Fireball attack by the Warlock against entity e(0-3).
      * 
      * @param e - The opposing entity being attacked
      * @return - String describing the damage dealt to the opposing entity
@@ -28,7 +28,7 @@ public class Warlock extends EnemyDecorator implements Magical {
     }
 
     /**
-     * Thunderclap attack by the Warlock against entity e(3-4).
+     * Thunderclap attack by the Warlock against entity e(1-3).
      * 
      * @param e - The opposing entity being attacked
      * @return - String describing the damage dealt to the opposing entity
@@ -39,6 +39,12 @@ public class Warlock extends EnemyDecorator implements Magical {
         return "zaps " + e.getName() + " with Thunderclap for " + d + " damage.";
     }
     
+    /**
+     * String attack method that randomly selects a spell for the Enemy to do.
+     * 
+     * @param e - The opposing entity being attacked
+     * @return - String spell describing the damage dealt to the opposing entity
+     */
     public String attack( Entity e ) {
         String out = "";
         switch( (int)( Math.random() * 3 ) ){
@@ -54,7 +60,12 @@ public class Warlock extends EnemyDecorator implements Magical {
         }
         return super.attack( e ) + "\n" + out;
     }
-
+    
+    /**
+     * String method that adds the "Warlock" title decorator to the Enemy's name.
+     * 
+     * @return - The decorated name of the enemy.
+     */
     public String getName() {
         return super.getName() + " Warlock";
     }
