@@ -44,19 +44,15 @@ class Main {
                         switch( (int)( Math.random() * 4 ) ) {
                             case 0:
                                 testDir = h.goNorth();
-                                testDir = map.getCharAtLoc( h.getLoc() );
                                 break;
                             case 1:
                                 testDir = h.goSouth();
-                                testDir = map.getCharAtLoc( h.getLoc() );
                                 break;
                             case 2:
                                 testDir = h.goEast();
-                                testDir = map.getCharAtLoc( h.getLoc() );
                                 break;
                             case 3:
                                 testDir = h.goWest();
-                                testDir = map.getCharAtLoc( h.getLoc() );
                                 break;
                         }
                     }
