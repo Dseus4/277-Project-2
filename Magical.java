@@ -1,5 +1,5 @@
 /**
- * Used either by the MagicalEnemy entity and Hero entity to choose from a list
+ * Used either by warlock entities and the Hero entity to choose from a list
  * of magical attacks.
  */
 
