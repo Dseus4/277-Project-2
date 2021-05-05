@@ -146,7 +146,6 @@ class Main {
         System.out.println( "Welcome to the store! What would you like to do?" );
         System.out.println( "1. Buy\n2. Exit" );
         
-        int gold = h.getGold();
         int selection = 1;  
 
         while ( true ) {
@@ -163,6 +162,7 @@ class Main {
         }
 
         while (selection == 1) {
+            int gold = h.getGold();
             System.out.println( "What would you like to buy?" );
             System.out.println( "1. Health Potions: 25 Gold\n2. Key: 50 Gold" );
             System.out.println( "Amount: " + gold );
