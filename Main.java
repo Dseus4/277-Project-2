@@ -256,7 +256,7 @@ class Main {
         
         while( alive ) {
         
-            //System.out.println( hero.toString() );
+            
             map.reveal( hero.getLoc() );
                 
         
