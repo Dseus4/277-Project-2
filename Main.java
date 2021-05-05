@@ -301,8 +301,10 @@ class Main {
                     if( monsterRoom( hero, enGen.generateEnemy( hero.getLevel() ) ) == false) {
                         alive = false;
                     }
-                    roomC = Map.getInstance().getCharAtLoc(hero.getLoc());
-                    continue;
+                    if(Map.getInstance().getCharAtLoc(hero.getLoc()) == 'm'){
+                        roomC = Map.getInstance().getCharAtLoc(hero.getLoc());
+                        continue;
+                    }
             }
 
             System.out.println( hero.toString() );
