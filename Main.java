@@ -273,9 +273,7 @@ class Main {
                         System.out.println( "You found the exit. Proceeding to the next level." );
                     
                         hero.levelUp();
-                        map.loadMap( hero.getLevel() );
-                        
-
+                      
                         map.reveal( hero.getLoc() );
                     }
                     else {
