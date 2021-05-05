@@ -162,10 +162,9 @@ class Main {
         }
 
         while (selection == 1) {
-            int gold = h.getGold();
             System.out.println( "What would you like to buy?" );
             System.out.println( "1. Health Potions: 25 Gold\n2. Key: 50 Gold" );
-            System.out.println( "Amount: " + gold );
+            System.out.println( "Amount: " + h.getGold() );
 
 
             while (true) {
@@ -184,9 +183,8 @@ class Main {
 
             if ( selection == 1 ) {
 
-                if ( gold >= 25 ) {
+                if ( h.getGold() >= 25 ) {
                     h.spendGold( 25 );
-                    gold -= 25;
                     System.out.println( "You got a potion! Using it now..." );
                     // Potions are used immediately.
                     h.heal( 25 );
@@ -199,9 +197,8 @@ class Main {
             }
             else if ( selection == 2 ) {
 
-                if ( gold >= 50 ) {
+                if ( h.getGold() >= 50 ) {
                     h.spendGold( 50 );
-                    gold =- 50;
                     System.out.println( "You got a key!" );
                     h.pickUpKey();
                 }
