@@ -299,7 +299,7 @@ class Main {
                     if( monsterRoom( hero, enGen.generateEnemy( hero.getLevel() ) ) == false) {
                         alive = false;
                     }
-                    if(Map.getInstance().getCharAtLoc(hero.getLoc()) == 'm'){
+                    if(Map.getInstance().getCharAtLoc(hero.getLoc()) != 'n'){
                         roomC = Map.getInstance().getCharAtLoc(hero.getLoc());
                         continue;
                     }
